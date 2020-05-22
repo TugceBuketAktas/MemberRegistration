@@ -1,0 +1,255 @@
+﻿
+@model MemberRegistration1.Data.Models.Users
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>About Page</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- overlayScrollbars-->
+    <link rel="stylesheet" href="~/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+</head>
+
+<body class="layout-top-nav" style="height: auto;">
+
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+            <div class="container">
+                <a class="navbar-brand">
+                    <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                   
+                </a>
+
+                <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+                    <!-- Left navbar links -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Profile</a>
+                        </li>
+                        @if (Model.UserPermission == true)
+                        {
+                            <li class="nav-item">
+                                <a href="/Admin/Index" class="nav-link">Users</a>
+                            </li>
+                        }
+
+
+                    </ul>
+                    <div style="float:right ; margin-right:35px">
+                        <button type="button" class="close " id="exit" ">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </nav>
+        <!-- /.navbar -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="min-height: 519.233px;">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-6">
+
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3">
+
+                            <!-- Profile Image -->
+                            <div class="card card-primary card-outline">
+                                <div class="card-body box-profile">
+                                    <div class="text-center">
+                                        <img class="profile-user-img img-fluid img-circle" src="../../dist/img/pp.webp.jpg" alt="User profile picture">
+                                    </div>
+
+                                    <h3 class="profile-username text-center">@Model.UserFullname</h3>
+
+                                    <p class="text-muted text-center">@Model.UserJob</p>
+
+                                    <ul class="list-group list-group-unbordered mb-3">
+
+                                        <li class="list-group-item">
+                                            <b>Username</b> <a class="float-right">@Model.UserUsername</a>
+                                        </li>
+                                        @if (Model.UserPermission == true)
+                                        {
+                                            <li class="list-group-item">
+                                                <b>Status</b> <a class="float-right">Admin</a>
+                                            </li>
+
+                                        }
+                                        @if (Model.UserPermission == false)
+                                        {
+                                            <li class="list-group-item">
+                                                <b>Status</b> <a class="float-right">User</a>
+                                            </li>
+
+                                        }
+
+                                        <li class="list-group-item">
+                                            <b>Registration</b> <a class="float-right">@Model.UserRegistration</a>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                            <!-- /.card -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-9">
+                            <div class="card">
+                                <div class="card-header p-2">
+                                    <label class="col-sm-2 col-form-label" style="color: cornflowerblue; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">ABOUT</label>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <div class="tab-content">
+                                        <div class="active tab-pane" id="activity">
+
+
+                                            <div class="tab-pane" id="settings">
+                                                <form class="form-horizontal">
+                                                    <ul>
+                                                        <li class="form-group row list-group-item">
+                                                            <b>Email</b>
+                                                            <div  class="float-right col-sm-10">
+                                                            @Html.DisplayFor(modelItem => Model.UserEmail)
+                                                            </div>
+                                                        </li>
+                                                        <li class="form-group row list-group-item">
+                                                            <b>Phone Number</b>
+                                                            <div class="float-right col-sm-10">
+                                                                @Html.DisplayFor(modelItem => Model.UserPhone)
+                                                            </div>
+                                                        </li>
+                                                        <li class="form-group row list-group-item">
+                                                            <b>Job</b>
+                                                            <div class="float-right col-sm-10">
+                                                                @Html.DisplayFor(modelItem => Model.UserJob)
+                                                            </div>
+                                                        </li>
+
+                                                        <li class="form-group row list-group-item">
+                                                            <b>City</b>
+                                                            <div class="float-right col-sm-10">
+                                                                @Html.DisplayFor(modelItem => Model.UserCity)
+
+                                                            </div>
+                                                        </li>
+
+                                                        <li class="form-group row list-group-item">
+                                                            <b >Neighborhood</b>
+                                                            <div  class="float-right col-sm-10">
+                                                                @Html.DisplayFor(modelItem => Model.UserNeighborhood)
+                                                            </div>
+                                                        </li>
+                                                        <li class="form-group row list-group-item">
+                                                            <b >Salary</b>
+                                                            <div class="float-right col-sm-10">
+                                                                @Html.DisplayFor(modelItem => Model.UserSalary)
+                                                                <!--<input type="text" class="form-control" id="inputSkills" placeholder="Salary"> -->
+                                                            </div>
+                                                        </li>
+
+
+                                                    </ul>
+                                                </form>
+                                            </div>
+                                            <!-- /.tab-pane -->
+                                        </div>
+                                        <!-- /.tab-content -->
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- /.nav-tabs-custom -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </div>
+            </section>
+
+            <!-- Main content -->
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+            <div class="p-3">
+                <h5>Title</h5>
+                <p>Sidebar content</p>
+            </div>
+        </aside>
+        <!-- /.control-sidebar -->
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <!-- To the right -->
+            <div class="float-right d-none d-sm-inline">
+                Tuğçe Buket Mızrak ©
+            </div>
+
+        </footer>
+    </div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="~/jquery/jquery.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purpose-->
+    <script src="~/dist/js/demo.js"></script>
+    <script>
+
+        $("#exit").click(function () {
+            window.location.replace("/");
+        });
+
+    </script>
+
+    <div class="igtranslator-main-div" style="display: none; width: 0px; height: 0px;"><iframe src="moz-extension://4d5c9fc7-e615-4b89-8de0-9587c7e177f7/data/content_script/blank.html" class="igtranslator-iframe" scrolling="no" frameborder="0"></iframe></div>
+    <div class="igtranslator-activator-icon bounceIn" style="background-image: url(&quot;moz-extension://4d5c9fc7-e615-4b89-8de0-9587c7e177f7/data/icons/home.png&quot;); display: none;" title="Click to Show Translation"></div>
+</body>
+<!-- ./wrapper -->
+
+</html>

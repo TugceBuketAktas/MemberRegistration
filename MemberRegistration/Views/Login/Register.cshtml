@@ -1,0 +1,114 @@
+﻿@model MemberRegistration1.Models.UserRegistrationModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Registration Page</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="~/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/dist/css/adminlte.min.css">
+
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition register-page">
+    <div class="register-box">
+        <div class="register-logo">
+            <a>Registration</a>
+        </div>
+
+        <div class="card">
+            <div class="card-body register-card-body">
+                <p class="login-box-msg">Register a new membership</p>
+
+                @*asp-for,id,name aynı şeyler *@
+                <form asp-action="Register">
+                    @if (ViewBag.Message != null)
+                    {
+                        <alert>@ViewBag.Message</alert>
+                    }
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label for="UserFullname" class="control-label">Full Name</label>
+                        <input asp-for="UserFullname" class="form-control" placeholder="Full name" required />
+                        <span asp-validation-for="UserFullname" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="UserEmail" class="control-label">Email</label>
+                        <input type="email" asp-for="UserEmail" class="form-control" placeholder="Email Address" required />
+                        <span asp-validation-for="UserEmail" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Username" class="control-label">Username</label>
+                        <input asp-for="UserUsername" class="form-control" placeholder="Username" required />
+                        <span asp-validation-for="UserUsername" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UserPasswd" class="control-label">Password</label>
+                        <input type="password" asp-for="UserPasswd" class="form-control" placeholder="Password" required />
+                        <span asp-validation-for="UserPasswd" class="text-danger"></span>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label asp-for="UserJob" class="control-label">Job</label>
+                            <input asp-for="UserJob" class="form-control" placeholder="Job" required />
+                            <span asp-validation-for="UserJob" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label asp-for="UserPhone" class="control-label">Phone Number</label>
+                            <input asp-for="UserPhone" class="form-control" placeholder="Phone Number" required />
+                            <span asp-validation-for="UserPhone" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label asp-for="UserCity" class="control-label">City</label>
+                            <input asp-for="UserCity" class="form-control" placeholder="City" required />
+                            <span asp-validation-for="UserCity" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label asp-for="UserNeighborhood" class="control-label">Neighborhood</label>
+                            <input asp-for="UserNeighborhood" class="form-control" placeholder="Neighborhood" required />
+                            <span asp-validation-for="UserNeighborhood" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <a asp-controller="Login" asp-action="Index" class="text-center">I already have a membership</a>
+
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-default btn-block">Register</button>
+                        </div>
+
+                        <!-- /.col -->
+                    </div>
+
+                </form>
+
+            </div>
+            <!-- /.form-box -->
+        </div><!-- /.card -->
+    </div>
+    <!-- /.register-box -->
+    <!-- jQuery -->
+    <script src="~/jquery/jquery.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/dist/js/adminlte.min.js"></script>
+
+    <div class="igtranslator-main-div" style="display: none; width: 0px; height: 0px;"><iframe src="moz-extension://4d5c9fc7-e615-4b89-8de0-9587c7e177f7/data/content_script/blank.html" class="igtranslator-iframe" scrolling="no" frameborder="0"></iframe></div><div class="igtranslator-activator-icon bounceIn" style="background-image: url(&quot;moz-extension://4d5c9fc7-e615-4b89-8de0-9587c7e177f7/data/icons/home.png&quot;); display: none;" title="Click to Show Translation"></div>
+</body>
+</html>
